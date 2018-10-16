@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <property name="dir.eclipse.plugins" value="D:/PortableApps/eclipse-mars-java/plugins"/>
+	<target name="javadoc">
+		<delete dir="doc/project" />
+		<delete dir="doc/junit" />
+		<antcall target="javadoc-project" />
+		<antcall target="javadoc-junit" />
+	</target>
+	
+	<target name="javadoc-project">
+		<javadoc access="public" encoding="UTF-8" charset="UTF-8" docencoding="UTF-8" 
+        	additionalparam="-tag preconditions:cm:&quot;Preconditions:&quot; -tag postconditions:cm:&quot;Postconditions:&quot;" 
+        	author="true" source="1.8" splitindex="true" use="true" version="true"
+        	nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" 
+			destdir="doc/project" sourcepath="src" packagenames="abstractuserinterfaces,control,exceptions,model"/>
+	</target>
+	    <target name="javadoc-junit">
+	        <javadoc access="public" encoding="UTF-8" charset="UTF-8" docencoding="UTF-8" 
+	        	additionalparam="-tag preconditions:cm:&quot;Preconditions:&quot; -tag postconditions:cm:&quot;Postconditions:&quot;" 
+	        	author="true" source="1.8" splitindex="true" use="true" version="true"
+	    	nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" 
+	    	classpath="${dir.eclipse.plugins}\org.eclipse.fx.ide.css.jfx8_2.2.0.201512111004.jar;${dir.eclipse.plugins}\org.junit_4.12.0.v201504281640\junit.jar;${dir.eclipse.plugins}\org.hamcrest.core_1.3.0.v201303031735.jar"
+			destdir="doc/junit" packagenames="control,exceptions,model,abstractuserinterfaces" sourcepath="tests"/>
+	    </target>
+</project>
